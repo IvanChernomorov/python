@@ -1,0 +1,33 @@
+{% extends 'main/base.html'%}
+
+{% block title %}
+Исполнители
+{% endblock %}
+
+
+{% block content %}
+<h1>Исполнители</h1>
+<br>
+<div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Псевдоним</th>
+                <th>Жанр</th>
+                <th>Дата начала карьеры</th>
+                <th>Страна</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for el in artists %}
+            <tr>
+                <td>{{el.pseudonym}}</td>
+                <td>{{el.genre}}</td>
+                <td>{{el.formed_in}}</td>
+                <td>{{el.country}}</td>
+                {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}

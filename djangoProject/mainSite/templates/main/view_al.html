@@ -1,0 +1,33 @@
+{% extends 'main/base.html'%}
+
+{% block title %}
+Альбомы
+{% endblock %}
+
+
+{% block content %}
+<h1> Альбомы </h1>
+<br>
+<div>
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Название</th>
+				<th>Исполнитель</th>
+				<th>Дата выхода</th>
+				<th>Лейбл</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for el in albums %}
+			<tr>
+				<td>{{el.title}}</td>
+				<td>{{el.id_ar}}</td>
+				<td>{{el.release_date}}</td>
+				<td>{{el.label}}</td>
+				{% endfor %}
+		</tbody>
+	</table>
+</div>
+
+{% endblock %}

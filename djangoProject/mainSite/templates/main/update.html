@@ -1,0 +1,43 @@
+{% extends 'main/base.html'%}
+
+{% block title %}
+Редактировать Песню
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <h1>Редактировать песню</h1><br>
+    <form action="{% url 'update' song.pk %}" method="POST">
+        {% csrf_token %}
+        <fieldset>
+            <label class="form-label" for="id_ar">Исполнитель</label>
+            <select class="form-select" aria-label="Default select example" name="id_ar" required>
+                {% for artist in artists %}
+                <option {% if artist.pk == song.id_ar.pk %}selected="selected"{% endif %} value="{{artist.pk}}">{{artist.pseudonym}}</option>
+                {% endfor %}
+            </select>
+            <br>
+
+            <label class="form-label" for="id_ph">Альбом</label>
+            <select class="form-select" aria-label="Default select example" name="id_al" required>
+                {% for el in albums %}
+                <option {% if el.pk == book.id_ph.pk %}selected="selected"{% endif %} value="{{el.pk}}">{{el.title}}</option>
+                {% endfor %}
+            </select>
+            <br>
+            <label class="form-label" for="title">Название песни</label>
+            <input class="form-control" type="text" name="title" value="{{song.title}}" required>
+            <br>
+            <label class="form-label" for="length">Продолжительность в секундах</label>
+            <input class="form-control" type="number" name="length" value="{{song.length}}" required>
+            <br>
+            <input type="submit" class="btn btn-primary">
+
+        </fieldset>
+    </form>
+</div>
+
+
+{% endblock%}
+
+

@@ -1,0 +1,30 @@
+{% extends 'main/base.html'%}
+
+{% block title %}
+Песни
+{% endblock %}
+
+
+{% block content %}
+<h2>Песни</h2><br>
+<table class="table">
+	<thead>
+		<tr>
+			<th>Название</th>
+			<th>Альбом</th>
+			<th>Исполнитель</th>
+			<th>Продолжительность в секундах</th>
+		</tr>
+	</thead>
+	<tbody>
+		{% for el in songs %}
+		<tr>
+			<td>{{el.title}}</td>
+			<td>{{el.id_al}}</td>
+			<td>{{el.id_ar}}</td>
+			<td>{{el.length}}</td>
+			{% endfor %}
+	</tbody>
+</table>
+
+{% endblock %}

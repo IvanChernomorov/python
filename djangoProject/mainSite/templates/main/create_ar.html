@@ -1,0 +1,25 @@
+{% extends 'main/base.html'%}
+
+{% block title %}
+Добавить исполнителя
+{% endblock %}
+
+
+{% block content %}
+<h1>Добавить исполнителя</h1>
+<br>
+<form method="post">
+    {% csrf_token %}
+    {{ form.pseudonym }}<br>
+    {{ form.genre }}<br>
+    {{ form.country }}<br>
+    {{ form.formed_in }}<br>
+    <button type="submit" class="btn btn-success">Добавить</button>
+    <span>{{error}}</span>
+</form>
+<br>
+
+<br>
+<a href="view_ar"> Посмотреть всех исполнителей</a>
+<br>
+{% endblock %}

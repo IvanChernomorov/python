@@ -1,0 +1,26 @@
+{% extends 'main/base.html'%}
+
+{% block title %}
+Добавить песню
+{% endblock %}
+
+{% block content %}
+<h1>Добавить песню</h1>
+<br>
+<form method="post">
+	{% csrf_token %}
+	{{ form.title }}<br>
+	{{ form.length }}<br>
+	<div>Выберете исполнителя</div>
+	{{ form.id_ar }}<br>
+	<br>
+	<div>Выберете альбом</div>
+	{{ form.id_al }}<br>
+	<br>
+	<button type="submit" class="btn btn-success">Добавить</button>
+	<span>{{error}}</span>
+</form>
+<br>
+<a href="view_s"> Посмотреть все песни</a>
+<br>
+{% endblock %}
