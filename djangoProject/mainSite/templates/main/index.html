@@ -12,60 +12,48 @@
 {% block content %}
 
 
-<!-- <script>
-    function f(s1, s2, s3, s4) {
-        document.getElementById("title").innerHTML = "Название";
-        document.getElementById("id_al").innerHTML = "Альбом";
-        document.getElementById("id_ar").innerHTML = "Исполнитель";
-        document.getElementById("length").innerHTML = "Продолжительность в секундах";
-        document.getElementById("tab1").innerHTML = s1;
-        document.getElementById("tab2").innerHTML = s2;
-        document.getElementById("tab3").innerHTML = s3;
-        document.getElementById("tab4").innerHTML = s4;
+<script>
+    function f() {
+
     }
-</script> -->
+</script>
 
 
 <h1>Главная страница</h1>
 <br>
 {% for el in songs %}
-<div>
-    <div class="d-flex justify-content-between align-items-center py-3 border-bottom px-2">
+<div class="py-3 border-bottom px-2">
+    <div class="d-flex justify-content-between align-items-center">
         <div>
             <span class="fs-5">{{el.title}}</span> <br>
             <span class="fst-italic">{{el.id_ar}}</span>
         </div>
         <div>
-            <a href="update/{{ el.id }}" class="btn btn-success mx-2">Редактировать</a>
-            <!-- <button type="button" class="btn btn-success"
-                onclick="f('{{el.title}}','{{el.length}}','{{el.id_ar}}','{{el.id_al}}')">Развернуть</button> -->
+            <a href="update/{{ el.id }}" class="mx-2">Редактировать</a>
+            <button type="button" class="btn btn-success" data-toggle="collapse"
+                data-target="#table{{el.id}}">Развернуть</button>
         </div>
-
+    </div>
+    <div id="table{{el.id}}" class="collapse">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th class="border-white">Название</th>
+                    <th class="border-white">Альбом</th>
+                    <th class="border-white">Исполнитель</th>
+                    <th class="border-white">Продолжительность в секундах</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{el.title}}</td>
+                    <td>{{el.id_al}}</td>
+                    <td>{{el.id_ar}}</td>
+                    <td>{{el.length}}</td>
+                </tr><br>
+            </tbody>
+        </table>
     </div>
 </div>
-
 {% endfor%}
-<!-- <div>
-    <table class="table" BORDER=0>
-        <thead>
-            <tr>
-                <th id="title"></th>
-                <th id="length"></th>
-                <th id="id_ar"></th>
-                <th id="id_al"></th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td id="tab1"></td>
-                <td id="tab2"></td>
-                <td id="tab3"></td>
-                <td id="tab4"></td>
-            </tr><br>
-        </tbody>
-    </table>
-</div> -->
-
-
-
 {% endblock %}

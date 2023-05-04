@@ -10,6 +10,7 @@ from django.urls import reverse
 
 def index(request):
     songs = Songs.objects.all()
+    expand_element = True
     context = {
         'songs': songs,
         'title':'Главная'
